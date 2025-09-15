@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I EF Blog - Program Studi Informatika</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .blog-card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1e3c72 10%, #2a5298 35%, #0f2027 100%);
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,1000 1000,300 1000,1000"/><polygon fill="%23ffffff05" points="0,800 1000,100 1000,800"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            
+        }
+        
+        .gradient-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .section-bg {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .accent-bg {
+            background: linear-gradient(135deg, #137ad5 0%, #00f2fe 100%);
+        }
+        
+        .navbar-dark {
+            background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%) !important;
+        }
+        
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .tech-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(102, 126, 234, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showSection('home')">
+                <i class="bi bi-mortarboard-fill"></i> I EF Blog
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('home')">
+                            <i class="bi bi-house"></i> <b>Beranda</b>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('about')">
+                            <i class="bi bi-person"></i> <b>Tentang</b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="home-section" class="section">
+        <section class="hero-section text-center">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="floating-icon mb-4">
+                        <i class="bi bi-cpu-fill" style="font-size: 4rem; color: #4facfe;"></i>
+                    </div>
+                   
+                    <h1 class="display-3 mb-3"> <b> Program Studi Informatika</b></h1>
+                    <p class="lead mb-4">Eksplorasi dunia teknologi informasi dan komputer melalui artikel-artikel terdepan tentang programming, algoritma, kecerdasan buatan, dan inovasi digital masa depan</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <span class="badge tech-badge fs-6 px-3 py-2">Artificial Intelligence</span>
+                        <span class="badge tech-badge fs-6 px-3 py-2">Data Science</span>
+                        <span class="badge tech-badge fs-6 px-3 py-2">Software Engineering</span>
+                    </div>
+                    <a href="#blog-list" class="btn btn-light btn-lg mt-4">
+                        <i class="bi bi-arrow-down-circle"></i> Mulai Jelajahi
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog-list" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="display-5 fw-bold text-primary">Artikel Terbaru Informatika</h2>
+                    <p class="lead text-muted">Temukan wawasan mendalam tentang dunia teknologi dan informatika</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100 blog-card shadow-lg border-0">
+                            <div class="position-relative">
+                                <img src="./images/Machine Learning.jpg" class="card-img-top" alt="AI dan Machine Learning">
+                                <span class="position-absolute top-0 start-0 badge bg-primary m-2">
+                                    <i class="bi bi-robot"></i> AI
+                                </span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-primary fw-bold">Masa Depan Artificial Intelligence dalam Informatika</h5>
+                                <p class="card-text flex-grow-1">Eksplorasi mendalam tentang perkembangan AI, machine learning, dan deep learning. Bagaimana teknologi ini mengubah paradigma pemrograman dan membuka peluang karir baru di era digital.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> 12 Sep 2025
+                                    </small>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="showBlogDetail(1)">
+                                        <i class="bi bi-book"></i> Baca Artikel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100 blog-card shadow-lg border-0">
+                            <div class="position-relative">
+                                <img src="./images/Data science.jpg" class="card-img-top" alt="Data Science">
+                                <span class="position-absolute top-0 start-0 badge bg-info m-2">
+                                    <i class="bi bi-graph-up"></i> Data
+                                </span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-primary fw-bold">Data Science: Menggali Emas dari Big Data</h5>
+                                <p class="card-text flex-grow-1">Pelajari bagaimana mahasiswa informatika dapat menguasai data science, mulai dari statistik, Python, R, hingga visualisasi data untuk mengambil keputusan bisnis yang cerdas.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> 10 Sep 2025
+                                    </small>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="showBlogDetail(2)">
+                                        <i class="bi bi-book"></i> Baca Artikel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100 blog-card shadow-lg border-0">
+                            <div class="position-relative">
+                                <img src="./images/Cybersecurity.jpg" class="card-img-top" alt="Cybersecurity">
+                                <span class="position-absolute top-0 start-0 badge bg-danger m-2">
+                                    <i class="bi bi-shield-check"></i> Security
+                                </span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-primary fw-bold">Cybersecurity: Benteng Digital di Era Modern</h5>
+                                <p class="card-text flex-grow-1">Memahami pentingnya keamanan siber, ethical hacking, dan kriptografi. Peluang karir sebagai security analyst dan pentester yang semakin dibutuhkan industri.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> 8 Sep 2025
+                                    </small>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="showBlogDetail(3)">
+                                        <i class="bi bi-book"></i> Baca Artikel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100 blog-card shadow-lg border-0">
+                            <div class="position-relative">
+                                <img src="./images/Software Developer_Enginee.jpg" class="card-img-top" alt="Software Engineering">
+                                <span class="position-absolute top-0 start-0 badge bg-success m-2">
+                                    <i class="bi bi-code-slash"></i> Code
+                                </span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-primary fw-bold">Software Engineering: Seni Membangun Perangkat Lunak</h5>
+                                <p class="card-text flex-grow-1">Metodologi pengembangan software modern, dari Agile hingga DevOps. Best practices dalam coding, testing, dan maintenance aplikasi skala enterprise.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> 6 Sep 2025
+                                    </small>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="showBlogDetail(4)">
+                                        <i class="bi bi-book"></i> Baca Artikel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100 blog-card shadow-lg border-0">
+                            <div class="position-relative">
+                                <img src="./images/mobilee.jpg" class="card-img-top" alt="Mobile Development">
+                                <span class="position-absolute top-0 start-0 badge bg-warning m-2">
+                                    <i class="bi bi-phone"></i> Mobile
+                                </span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-primary fw-bold">Mobile Development: Era Aplikasi di Genggaman</h5>
+                                <p class="card-text flex-grow-1">Panduan lengkap pengembangan aplikasi mobile dengan React Native, Flutter, dan native development. Tren mobile computing dan IoT applications.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> 4 Sep 2025
+                                    </small>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="showBlogDetail(5)">
+                                        <i class="bi bi-book"></i> Baca Artikel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100 blog-card shadow-lg border-0">
+                            <div class="position-relative">
+                                <img src="./images/cloud computing.jpg" class="card-img-top" alt="Cloud Computing">
+                                <span class="position-absolute top-0 start-0 badge bg-secondary m-2">
+                                    <i class="bi bi-cloud"></i> Cloud
+                                </span>
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title text-primary fw-bold">Cloud Computing: Infrastruktur Masa Depan</h5>
+                                <p class="card-text flex-grow-1">Memahami konsep cloud computing, AWS, Azure, dan Google Cloud Platform. Arsitektur microservices dan containerization dengan Docker dan Kubernetes.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> 2 Sep 2025
+                                    </small>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="showBlogDetail(6)">
+                                        <i class="bi bi-book"></i> Baca Artikel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-bg py-5">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-3 mb-4">
+                        <div class="floating-icon">
+                            <i class="bi bi-mortarboard" style="font-size: 3rem;"></i>
+                        </div>
+                        <h3 class="fw-bold">200+</h3>
+                        <p>Mahasiswa Informatika</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="floating-icon">
+                            <i class="bi bi-building" style="font-size: 3rem;"></i>
+                        </div>
+                        <h3 class="fw-bold">500+</h3>
+                        <p>Perusahaan Partner</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="floating-icon">
+                            <i class="bi bi-trophy" style="font-size: 3rem;"></i>
+                        </div>
+                        <h3 class="fw-bold">99%</h3>
+                        <p>Tingkat Kelulusan</p>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="floating-icon">
+                            <i class="bi bi-briefcase" style="font-size: 3rem;"></i>
+                        </div>
+                        <h3 class="fw-bold">100%</h3>
+                        <p>Langsung Bekerja</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="blog-detail-section" class="section" style="display: none; padding-top: 80px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <button class="btn btn-outline-primary mb-4" onclick="showSection('home')">
+                        <i class="bi bi-arrow-left"></i> Kembali ke Beranda
+                    </button>
+                    <article id="blog-content">
+                        </article>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about-section" class="section" style="display: none; padding-top: 80px;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <div class="gradient-card p-4 rounded-4 d-inline-block mb-3">
+                            <i class="bi bi-mortarboard-fill" style="font-size: 4rem;"></i>
+                        </div>
+                        <h2>Tentang Program Studi Informatika</h2>
+                        <p class="lead text-muted">Membangun Generasi Teknologi Masa Depan</p>
+                    </div>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">
+                                <i class="bi bi-info-circle text-primary"></i> Visi & Misi Program Studi
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="text-primary">Visi</h5>
+                                    <p>Menjadi program studi informatika terdepan yang menghasilkan lulusan berkualitas tinggi dan berdaya saing global dalam bidang teknologi informasi dan komputer.</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="text-primary">Misi</h5>
+                                    <ul>
+                                        <li>Menyelenggarakan pendidikan informatika berkualitas tinggi</li>
+                                        <li>Mengembangkan penelitian inovatif di bidang teknologi</li>
+                                        <li>Melakukan pengabdian masyarakat melalui teknologi</li>
+                                        <li>Membangun kerjasama dengan industri dan institusi global</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-book text-success"></i> Kurikulum Informatika
+                                    </h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-check-circle text-success"></i> Algoritma & Struktur Data</li>
+                                        <li><i class="bi bi-check-circle text-success"></i> Pemrograman Web & Mobile</li>
+                                        <li><i class="bi bi-check-circle text-success"></i> Database Management System</li>
+                                        <li><i class="bi bi-check-circle text-success"></i> Artificial Intelligence</li>
+                                        <li><i class="bi bi-check-circle text-success"></i> Machine Learning</li>
+                                        <li><i class="bi bi-check-circle text-success"></i> Cybersecurity</li>
+                                        <li><i class="bi bi-check-circle text-success"></i> Software Engineering</li>
+                                        <li><i class="bi bi-check-circle text-success"></i> Computer Networks</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-briefcase text-warning"></i> Prospek Karir
+                                    </h5>
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-arrow-right text-primary"></i> Software Developer</li>
+                                        <li><i class="bi bi-arrow-right text-primary"></i> Data Scientist</li>
+                                        <li><i class="bi bi-arrow-right text-primary"></i> AI/ML Engineer</li>
+                                        <li><i class="bi bi-arrow-right text-primary"></i> Cybersecurity Specialist</li>
+                                        <li><i class="bi bi-arrow-right text-primary"></i> Mobile App Developer</li>
+                                        <li><i class="bi bi-arrow-right text-primary"></i> DevOps Engineer</li>
+                                        <li><i class="bi bi-arrow-right text-primary"></i> System Analyst</li>
+                                        <li><i class="bi bi-arrow-right text-primary"></i> Tech Entrepreneur</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4 shadow-sm gradient-card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <i class="bi bi-star-fill"></i> Keunggulan Program Studi Informatika
+                            </h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-check2-circle"></i> <strong>Laboratorium Modern:</strong> Fasilitas lab dengan teknologi terkini</li>
+                                        <li><i class="bi bi-check2-circle"></i> <strong>Dosen Berkualitas:</strong> Pengajar berpengalaman industri dan akademis</li>
+                                        <li><i class="bi bi-check2-circle"></i> <strong>Kurikulum Up-to-date:</strong> Sesuai perkembangan teknologi industri</li>
+                                        <li><i class="bi bi-check2-circle"></i> <strong>Project-Based Learning:</strong> Pembelajaran berbasis proyek nyata</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li><i class="bi bi-check2-circle"></i> <strong>Industry Partnership:</strong> Kerjasama dengan perusahaan teknologi</li>
+                                        <li><i class="bi bi-check2-circle"></i> <strong>International Exposure:</strong> Program pertukaran mahasiswa</li>
+                                        <li><i class="bi bi-check2-circle"></i> <strong>Research Opportunities:</strong> Kesempatan penelitian tingkat nasional</li>
+                                        <li><i class="bi bi-check2-circle"></i> <strong>Career Support:</strong> Bimbingan karir dan job placement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <h5>Bergabunglah dengan Kami!</h5>
+                        <p class="text-muted mb-4">Wujudkan impian menjadi profesional teknologi masa depan</p>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a href="mailto:info@informatika.ac.id" class="btn btn-primary">
+                                <i class="bi bi-envelope"></i> Info Pendaftaran
+                            </a>
+                            <a href="https://wa.me/6281234567890" class="btn btn-success">
+                                <i class="bi bi-whatsapp"></i> Konsultasi
+                            </a>
+                            <a href="#" class="btn btn-outline-primary">
+                                <i class="bi bi-globe"></i> Website Resmi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="bi bi-mortarboard-fill"></i> Program Studi Informatika</h5>
+                    <p class="mb-0">Membangun masa depan teknologi melalui pendidikan informatika berkualitas tinggi dan penelitian inovatif.</p>
+                </div>
+               
+                <div class="col-md-4">
+
+                    <h5>Kontak</h5>
+                    <p class="mb-1">
+                        <i class="bi bi-geo-alt"></i> Jl. Universitas No. 123, Medan<br>
+                        <i class="bi bi-envelope"></i> info@informatika.ac.id<br>
+                        <i class="bi bi-phone"></i> +62 61 8234567
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 HIMASTI.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Blog data for Informatika
+        const blogPosts = {
+            1: {
+                title: "Masa Depan Artificial Intelligence dalam Informatika",
+                image: "./images/Machine Learning.jpg", // Use relative path if images are local
+                date: "12 September 2025",
+                author: "Dr. Budi Santoso, M.Kom",
+                content: `
+                    <h1>Masa Depan Artificial Intelligence dalam Informatika</h1>
+                    <div class="mb-4">
+                        <img src="./images/Machine Learning.jpg" class="img-fluid rounded mb-3" alt="AI dan Machine Learning">
+                        <p class="text-muted"><i class="bi bi-calendar"></i> 12 September 2025 | <i class="bi bi-person"></i> Dr. Budi Santoso, M.Kom</p>
+                    </div>
+                    
+                    <h2>Pendahuluan</h2>
+                    <p>Artificial Intelligence (AI) telah menjadi salah satu bidang paling revolusioner dalam dunia informatika. Sebagai mahasiswa informatika, memahami AI dan aplikasinya sangat penting untuk mempersiapkan diri menghadapi tantangan teknologi masa depan.</p>
+                    
+                    <h3>Perkembangan AI & Machine Learning</h3>
+                    <p>Machine Learning (ML) adalah sub-bidang AI yang memungkinkan sistem untuk belajar dari data tanpa diprogram secara eksplisit. Algoritma ML seperti regresi linier, pohon keputusan, dan jaringan saraf tiruan (neural networks) kini menjadi tulang punggung banyak aplikasi modern.</p>
+                    
+                    <h3>Deep Learning dan Aplikasinya</h3>
+                    <p>Deep Learning (DL), sebuah cabang dari ML yang menggunakan jaringan saraf tiruan berlapis-lapis, telah membawa terobosan besar dalam pengenalan gambar, pemrosesan bahasa alami (NLP), dan banyak lagi. Model-model seperti Convolutional Neural Networks (CNNs) dan Recurrent Neural Networks (RNNs) memungkinkan komputer untuk "melihat" dan "mendengar".</p>
+                    
+                    <h3>Dampak pada Pemrograman</h3>
+                    <p>AI mengubah cara kita memandang pemrograman. Alih-alih menulis setiap baris kode secara manual, pengembang kini dapat memanfaatkan model AI untuk menghasilkan kode, mengoptimalkan algoritma, atau bahkan menemukan bug. Konsep seperti AutoML (Automated Machine Learning) semakin populer.</p>
+                    
+                    <h3>Peluang Karir</h3>
+                    <p>Lulusan informatika dengan keahlian di bidang AI dan ML memiliki prospek karir yang sangat cerah. Posisi seperti AI Engineer, Machine Learning Specialist, Data Scientist, dan AI Researcher sangat diminati di berbagai industri.</p>
+                    
+                    <h3>Tantangan dan Etika</h3>
+                    <p>Meskipun potensinya besar, pengembangan AI juga menghadirkan tantangan, termasuk isu bias dalam data, privasi, dan dampak sosial. Memahami etika AI sama pentingnya dengan penguasaan teknisnya.</p>
+                    
+                    <h2>Kesimpulan</h2>
+                    <p>Masa depan informatika sangat terkait erat dengan kemajuan AI. Dengan terus belajar dan beradaptasi, mahasiswa informatika dapat menjadi pionir dalam revolusi teknologi ini.</p>
+                `
+            },
+            2: {
+                title: "Data Science: Menggali Emas dari Big Data",
+                image: "./images/Data science.jpg",
+                date: "10 September 2025",
+                author: "Dr. Siti Aminah, S.Si, M.Kom",
+                content: `
+                    <h1>Data Science: Menggali Emas dari Big Data</h1>
+                    <div class="mb-4">
+                        <img src="./images/Data science.jpg" class="img-fluid rounded mb-3" alt="Data Science">
+                        <p class="text-muted"><i class="bi bi-calendar"></i> 10 September 2025 | <i class="bi bi-person"></i> Dr. Siti Aminah, S.Si, M.Kom</p>
+                    </div>
+                    
+                    <h2>Apa itu Data Science?</h2>
+                    <p>Data Science adalah bidang interdisipliner yang menggunakan metode ilmiah, proses, algoritma, dan sistem untuk mengekstrak pengetahuan dan wawasan dari data terstruktur dan tidak terstruktur. Ini menggabungkan keahlian dari statistik, ilmu komputer, dan pengetahuan domain.</p>
+                    
+                    <h3>Mengapa Data Science Penting?</h3>
+                    <p>Di era Big Data, organisasi menghasilkan dan mengumpulkan data dalam jumlah yang sangat besar. Data Science memungkinkan mereka untuk mengubah data mentah ini menjadi informasi yang dapat ditindaklanjuti, yang mengarah pada pengambilan keputusan yang lebih baik, efisiensi operasional, dan inovasi produk.</p>
+                    
+                    <h3>Komponen Kunci Data Science</h3>
+                    <p>1.  <strong>Statistik:</strong> Memahami konsep probabilitas, inferensi statistik, dan pengujian hipotesis.<br>
+                        2.  <strong>Pemrograman:</strong> Menguasai bahasa seperti Python (dengan library seperti Pandas, NumPy, Scikit-learn) dan R.<br>
+                        3.  <strong>Visualisasi Data:</strong> Menggunakan alat seperti Matplotlib, Seaborn, Tableau untuk membuat grafik yang informatif.<br>
+                        4.  <strong>Machine Learning:</strong> Menerapkan algoritma ML untuk prediksi dan klasifikasi.<br>
+                        5.  <strong>Big Data Technologies:</strong> Familiar dengan Hadoop, Spark, dan database NoSQL.</p>
+                    
+                    <h3>Peran Mahasiswa Informatika</h3>
+                    <p>Mahasiswa informatika memiliki dasar yang kuat dalam pemrograman dan logika, yang merupakan aset berharga dalam Data Science. Dengan fokus pada statistik, algoritma ML, dan alat visualisasi, mereka dapat menjadi Data Scientist yang kompeten.</p>
+                    
+                    <h3>Visualisasi Data</h3>
+                    <p>Visualisasi adalah kunci untuk mengkomunikasikan temuan dari analisis data. Grafik yang efektif dapat mengungkapkan pola, tren, dan outlier yang mungkin terlewatkan dalam tabel data mentah.</p>
+                    
+                    <h2>Kesimpulan</h2>
+                    <p>Data Science membuka pintu untuk memahami dunia yang semakin didorong oleh data. Dengan terus mengasah keterampilan di bidang ini, mahasiswa informatika dapat berperan penting dalam mendorong inovasi dan pertumbuhan bisnis.</p>
+                `
+            },
+            3: {
+                title: "Cybersecurity: Benteng Digital di Era Modern",
+                image: "./images/Cybersecurity.jpg",
+                date: "8 September 2025",
+                author: "Prof. Ahmad Fauzi, M.Sc",
+                content: `
+                    <h1>Cybersecurity: Benteng Digital di Era Modern</h1>
+                    <div class="mb-4">
+                        <img src="./images/Cybersecurity.jpg" class="img-fluid rounded mb-3" alt="Cybersecurity">
+                        <p class="text-muted"><i class="bi bi-calendar"></i> 8 September 2025 | <i class="bi bi-person"></i> Prof. Ahmad Fauzi, M.Sc</p>
+                    </div>
+                    
+                    <h2>Pentingnya Keamanan Siber</h2>
+                    <p>Di era digital yang serba terhubung, keamanan siber bukan lagi sekadar pilihan, melainkan kebutuhan mutlak. Ancaman siber terus berkembang, mulai dari malware, phishing, ransomware, hingga serangan DDoS yang dapat melumpuhkan infrastruktur kritis.</p>
+                    
+                    <h3>Ancaman Umum</h3>
+                    <p><strong>Malware:</strong> Perangkat lunak berbahaya yang dirancang untuk merusak, mencuri, atau mengendalikan sistem komputer.<br>
+                    <strong>Phishing:</strong> Upaya penipuan untuk mendapatkan informasi sensitif (seperti username, password, detail kartu kredit) dengan menyamar sebagai entitas terpercaya.<br>
+                    <strong>Ransomware:</strong> Jenis malware yang mengenkripsi data korban dan meminta tebusan untuk dekripsi.<br>
+                    <strong>Serangan DDoS (Distributed Denial of Service):</strong> Upaya untuk mengganggu lalu lintas normal server, layanan, atau jaringan dengan membanjirinya dengan lalu lintas internet.</p>
+                    
+                    <h3>Bidang Keahlian dalam Cybersecurity</h3>
+                    <p><strong>Ethical Hacking (Penetration Testing):</strong> Praktik meretas sistem secara legal untuk menemukan kerentanan sebelum penyerang jahat melakukannya.<br>
+                    <strong>Kriptografi:</strong> Ilmu dan seni menyandikan dan mendekripsi informasi untuk memastikan kerahasiaan dan integritas data.<br>
+                    <strong>Analisis Keamanan (Security Analysis):</strong> Memantau sistem dan jaringan untuk mendeteksi aktivitas mencurigakan dan merespons insiden.<br>
+                    <strong>Manajemen Risiko Keamanan:</strong> Mengidentifikasi, menilai, dan mengelola risiko keamanan informasi.</p>
+                    
+                    <h3>Peluang Karir</h3>
+                    <p>Industri keamanan siber terus berkembang pesat, menciptakan banyak peluang karir. Posisi seperti Security Analyst, Penetration Tester (Pentester), Security Engineer, dan Chief Information Security Officer (CISO) sangat dibutuhkan.</p>
+                    
+                    <h2>Peran Mahasiswa Informatika</h2>
+                    <p>Mahasiswa informatika memiliki fondasi yang kuat untuk memasuki dunia cybersecurity. Pemahaman tentang jaringan komputer, sistem operasi, dan pemrograman sangat penting untuk memahami cara kerja serangan dan pertahanan siber.</p>
+                `
+            },
+            4: {
+                title: "Software Engineering: Seni Membangun Perangkat Lunak",
+                image: "./images/Software Developer_Enginee.jpg",
+                date: "6 September 2025",
+                author: "Ir. Dewi Lestari, M.T",
+                content: `
+                    <h1>Software Engineering: Seni Membangun Perangkat Lunak</h1>
+                    <div class="mb-4">
+                        <img src="./images/Software Developer_Enginee.jpg" class="img-fluid rounded mb-3" alt="Software Engineering">
+                        <p class="text-muted"><i class="bi bi-calendar"></i> 6 September 2025 | <i class="bi bi-person"></i> Ir. Dewi Lestari, M.T</p>
+                    </div>
+                    
+                    <h2>Definisi dan Pentingnya</h2>
+                    <p>Software Engineering adalah penerapan prinsip-prinsip rekayasa sistematis, disiplin, dan terukur pada pengembangan, pengoperasian, dan pemeliharaan perangkat lunak. Ini bukan hanya tentang menulis kode, tetapi tentang merancang, membangun, menguji, dan memelihara sistem perangkat lunak yang andal, efisien, dan dapat diskalakan.</p>
+                    
+                    <h3>Metodologi Pengembangan Modern</h3>
+                    <p><strong>Agile:</strong> Pendekatan iteratif dan inkremental yang menekankan kolaborasi tim, fleksibilitas, dan respons cepat terhadap perubahan. Contohnya Scrum dan Kanban.<br>
+                    <strong>DevOps:</strong> Budaya dan praktik yang menggabungkan pengembangan perangkat lunak (Dev) dan operasi IT (Ops) untuk mempersingkat siklus pengembangan dan memberikan kualitas yang lebih tinggi secara berkelanjutan.</p>
+                    
+                    <h3>Best Practices dalam Pengembangan</h3>
+                    <p><strong>Clean Code:</strong> Menulis kode yang mudah dibaca, dipahami, dan dipelihara.<br>
+                    <strong>Unit Testing:</strong> Menguji komponen kode terkecil secara independen untuk memastikan fungsinya.<br>
+                    <strong>Continuous Integration/Continuous Deployment (CI/CD):</strong> Otomatisasi proses build, test, dan deploy perangkat lunak.<br>
+                    <strong>Code Reviews:</strong> Tinjauan kode oleh rekan tim untuk mendeteksi bug dan meningkatkan kualitas kode.</p>
+                    
+                    <h3>Peran dalam Industri</h3>
+                    <p>Software Engineer adalah tulang punggung industri teknologi. Mereka bertanggung jawab untuk menciptakan aplikasi web, mobile, desktop, sistem embedded, dan banyak lagi. Kemampuan untuk bekerja dalam tim, memecahkan masalah kompleks, dan beradaptasi dengan teknologi baru sangat penting.</p>
+                    
+                    <h2>Kesimpulan</h2>
+                    <p>Software Engineering adalah disiplin yang dinamis dan krusial. Dengan menguasai prinsip-prinsip dan praktik terbaik, mahasiswa informatika dapat membangun karir yang sukses dalam menciptakan solusi perangkat lunak yang inovatif.</p>
+                `
+            },
+            5: {
+                title: "Mobile Development: Era Aplikasi di Genggaman",
+                image: "./images/mobilee.jpg",
+                date: "4 September 2025",
+                author: "Bapak Joko Susilo, S.Kom",
+                content: `
+                    <h1>Mobile Development: Era Aplikasi di Genggaman</h1>
+                    <div class="mb-4">
+                        <img src="./images/mobilee.jpg" class="img-fluid rounded mb-3" alt="Mobile Development">
+                        <p class="text-muted"><i class="bi bi-calendar"></i> 4 September 2025 | <i class="bi bi-person"></i> Bapak Joko Susilo, S.Kom</p>
+                    </div>
+                    
+                    <h2>Dominasi Aplikasi Mobile</h2>
+                    <p>Perangkat mobile telah menjadi pusat kehidupan digital kita. Aplikasi mobile memungkinkan akses instan ke informasi, hiburan, komunikasi, dan layanan. Pengembangan aplikasi mobile adalah salah satu area paling dinamis dalam industri teknologi.</p>
+                    
+                    <h3>Framework Populer</h3>
+                    <p><strong>React Native:</strong> Framework JavaScript yang memungkinkan pengembangan aplikasi lintas platform (iOS dan Android) dari satu basis kode.<br>
+                    <strong>Flutter:</strong> SDK UI dari Google untuk membuat aplikasi yang dikompilasi secara native untuk mobile, web, dan desktop dari satu codebase.<br>
+                    <strong>Native Development:</strong> Pengembangan aplikasi spesifik untuk platform tertentu menggunakan bahasa asli: Swift/Objective-C untuk iOS, dan Kotlin/Java untuk Android.</p>
+                    
+                    <h3>Tren Mobile Computing dan IoT</h3>
+                    <p>Perkembangan mobile computing berjalan seiring dengan Internet of Things (IoT). Aplikasi mobile seringkali menjadi antarmuka utama untuk mengontrol dan memantau perangkat IoT. Ini membuka peluang baru untuk integrasi layanan dan data.</p>
+                    
+                    <h3>Aspek Penting Pengembangan</h3>
+                    <p><strong>User Experience (UX):</strong> Desain antarmuka yang intuitif dan mudah digunakan sangat krusial.<br>
+                    <strong>Performa:</strong> Aplikasi harus berjalan lancar dan responsif.<br>
+                    <strong>Keamanan:</strong> Melindungi data pengguna dan aplikasi dari ancaman.<br>
+                    <strong>Distribusi:</strong> Memahami proses publikasi di App Store (Apple) dan Google Play Store.</p>
+                    
+                    <h2>Kesimpulan</h2>
+                    <p>Dunia mobile development menawarkan peluang besar bagi mahasiswa informatika. Dengan menguasai salah satu atau beberapa framework pengembangan mobile, mereka dapat menciptakan aplikasi yang membentuk cara kita berinteraksi dengan teknologi setiap hari.</p>
+                `
+            },
+            6: {
+                title: "Cloud Computing: Infrastruktur Masa Depan",
+                image: "./images/cloud computing.jpg",
+                date: "2 September 2025",
+                author: "Dr. Rina Wijaya, M.Kom",
+                content: `
+                    <h1>Cloud Computing: Infrastruktur Masa Depan</h1>
+                    <div class="mb-4">
+                        <img src="./images/cloud computing.jpg" class="img-fluid rounded mb-3" alt="Cloud Computing">
+                        <p class="text-muted"><i class="bi bi-calendar"></i> 2 September 2025 | <i class="bi bi-person"></i> Dr. Rina Wijaya, M.Kom</p>
+                    </div>
+                    
+                    <h2>Apa itu Cloud Computing?</h2>
+                    <p>Cloud Computing adalah penyediaan sumber daya komputasi (seperti server, penyimpanan, database, jaringan, perangkat lunak, analisis, dan intelijen) melalui internet ("cloud") dengan model penetapan harga bayar sesuai pemakaian. Ini memungkinkan perusahaan untuk menyediakan akses ke sumber daya TI tanpa perlu membeli dan mengelola infrastruktur fisik.</p>
+                    
+                    <h3>Penyedia Cloud Utama</h3>
+                    <p><strong>Amazon Web Services (AWS):</strong> Pemimpin pasar cloud computing dengan berbagai layanan komprehensif.<br>
+                    <strong>Microsoft Azure:</strong> Platform cloud yang kuat dari Microsoft, terintegrasi erat dengan ekosistem produk mereka.<br>
+                    <strong>Google Cloud Platform (GCP):</strong> Platform cloud dari Google yang dikenal dengan kekuatan dalam data analytics, machine learning, dan Kubernetes.</p>
+                    
+                    <h3>Arsitektur Modern: Microservices dan Containerization</h3>
+                    <p><strong>Microservices:</strong> Pendekatan arsitektur di mana aplikasi besar dibangun sebagai kumpulan layanan kecil yang independen dan dapat dikelola.<br>
+                    <strong>Containerization (Docker):</strong> Teknologi yang mengemas aplikasi dan dependensinya ke dalam unit standar (kontainer) yang dapat berjalan di mana saja.<br>
+                    <strong>Kubernetes:</strong> Sistem open-source untuk mengotomatiskan penempatan, penskalaan, dan pengelolaan aplikasi dalam kontainer.</p>
+                    
+                    <h2>Manfaat Cloud Computing</h2>
+                    <p>1.  <strong>Skalabilitas:</strong> Kemampuan untuk menambah atau mengurangi sumber daya sesuai kebutuhan.<br>
+                        2.  <strong>Fleksibilitas:</strong> Akses ke berbagai layanan dan teknologi.<br>
+                        3.  <strong>Efisiensi Biaya:</strong> Model bayar sesuai pemakaian mengurangi biaya modal.<br>
+                        4.  <strong>Keandalan:</strong> Penyedia cloud menawarkan infrastruktur yang tangguh dan cadangan data.</p>
+                    
+                    <h2>Kesimpulan</h2>
+                    <p>Cloud computing telah menjadi fondasi bagi banyak aplikasi dan layanan modern. Memahami konsep dan teknologi di baliknya sangat penting bagi mahasiswa informatika yang ingin membangun infrastruktur IT masa depan.</p>
+                `
+            }
+        };
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the target section
+            document.getElementById(sectionId + '-section').style.display = 'block';
+
+            // Highlight the active navigation link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(`showSection('${sectionId}')`)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function showBlogDetail(blogId) {
+            const blog = blogPosts[blogId];
+            if (blog) {
+                const blogContent = document.getElementById('blog-content');
+                blogContent.innerHTML = `
+                    <h2>${blog.title}</h2>
+                    <div class="mb-4">
+                        <img src="${blog.image}" class="img-fluid rounded mb-3" alt="${blog.title}">
+                        <p class="text-muted"><i class="bi bi-calendar"></i> ${blog.date} | <i class="bi bi-person"></i> ${blog.author}</p>
+                    </div>
+                    ${blog.content}
+                `;
+                showSection('blog-detail');
+            }
+        }
+
+        // Show the home section by default when the page loads
+        window.onload = () => {
+            showSection('home');
+        };
+    </script>
+</body>
+</html>
